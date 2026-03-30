@@ -1065,24 +1065,58 @@ footer {
     cursor: pointer;
 }
 
+.social-icon-image {
+    width: 18px;
+    height: 18px;
+    display: block;
+    background-color: var(--white);
+    transition: background-color 0.3s ease;
+    -webkit-mask-position: center;
+    -webkit-mask-repeat: no-repeat;
+    -webkit-mask-size: contain;
+    mask-position: center;
+    mask-repeat: no-repeat;
+    mask-size: contain;
+}
+
+.social-icon-facebook {
+    -webkit-mask-image: url('../assets/Social_Links_Icons/facebook-app-symbol.webp');
+    mask-image: url('../assets/Social_Links_Icons/facebook-app-symbol.webp');
+}
+
+.social-icon-twitter {
+    -webkit-mask-image: url('../assets/Social_Links_Icons/twitter.webp');
+    mask-image: url('../assets/Social_Links_Icons/twitter.webp');
+}
+
+.social-icon-instagram {
+    -webkit-mask-image: url('../assets/Social_Links_Icons/instagram.webp');
+    mask-image: url('../assets/Social_Links_Icons/instagram.webp');
+}
+
+.social-icon-linkedin {
+    -webkit-mask-image: url('../assets/Social_Links_Icons/linkedin.webp');
+    mask-image: url('../assets/Social_Links_Icons/linkedin.webp');
+}
+
 .contact-info .social-icon {
     background: var(--primary-blue);
-    color: var(--white);
 }
 
 footer .social-icon {
     background: var(--accent-cyan);
-    color: var(--primary-blue);
 }
 
 footer .social-icon:hover{
     background: var(--white);
-    color: var(--primary-blue);
 }
 
 .social-icon:hover {
     background: var(--accent-cyan);
-    color: var(--primary-blue);
+}
+
+.social-icon:hover .social-icon-image {
+    background-color: var(--primary-blue);
 }
 
 .footer-bottom {

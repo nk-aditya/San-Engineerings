@@ -153,37 +153,37 @@ const galleryData = {
         path: 'assets/pools/',
         prefix: 'Swimming_Pool_Image',
         count: 10,
-        extension: '.jpg'
+        extension: '.webp'
     },
     fountains: {
         path: 'assets/fountains/',
         prefix: 'Fountain_Image',
         count: 10,
-        extension: '.jpg'
+        extension: '.webp'
     },
     waterfalls: {
         path: 'assets/waterfalls/',
         prefix: 'Waterfall_Image',
         count: 10,
-        extension: ['.jpg', '.jpeg'] // Mixed extensions
+        extension: '.webp'
     },
     jacuzzi: {
         path: 'assets/jacuzzi/',
         prefix: 'Jacuzzi_Image',
         count: 10,
-        extension: '.jpg'
+        extension: '.webp'
     },
     tiles: {
         path: 'assets/Poll_Tiles/',
         prefix: 'Tile_Image',
         count: 10,
-        extension: ['.jpeg', '.jpg'] // Mixed extensions
+        extension: '.webp'
     },
     maintenance: {
         path: 'assets/maintenance/',
         prefix: 'Maintenance_Image',
         count: 10,
-        extension: '.jpg'
+        extension: '.webp'
     },
 };
 
@@ -196,27 +196,8 @@ function getImagePath(galleryType, imageNumber) {
     if (galleryType === 'projects') {
         return gallery.path + gallery.images[imageNumber - 1];
     }
-    
-    let extension = gallery.extension;
-    
-    // Handle waterfalls mixed extensions
-    if (galleryType === 'waterfalls') {
-        if (imageNumber === 1 || imageNumber === 4 || imageNumber === 10) {
-            extension = '.jpg';
-        } else {
-            extension = '.jpeg';
-        }
-    } 
-    // Handle tiles mixed extensions
-    else if (galleryType === 'tiles') {
-        if (imageNumber === 2 || imageNumber === 3 || imageNumber === 6 || imageNumber === 8 || imageNumber === 9 || imageNumber === 10) {
-            extension = '.jpg';
-        } else {
-            extension = '.jpeg';
-        }
-    }
-    
-    return gallery.path + gallery.prefix + imageNumber + extension;
+
+    return gallery.path + gallery.prefix + imageNumber + gallery.extension;
 }
 
 // Function to navigate to next image
@@ -262,6 +243,21 @@ function previousImage(button) {
     img.src = newImagePath;
     gallery.setAttribute('data-current-index', prevIndex);
 }
+
+// Make sure service galleries always start from the configured first image.
+document.addEventListener('DOMContentLoaded', () => {
+    document.querySelectorAll('.image-gallery[data-gallery]').forEach(gallery => {
+        const galleryType = gallery.getAttribute('data-gallery');
+        const img = gallery.querySelector('.gallery-image');
+
+        if (!galleryData[galleryType] || !img) {
+            return;
+        }
+
+        gallery.setAttribute('data-current-index', '1');
+        img.src = getImagePath(galleryType, 1);
+    });
+});
 
 // Add scroll top button to page
 const scrollButton = document.createElement('button');

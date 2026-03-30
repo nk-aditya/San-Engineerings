@@ -2,7 +2,7 @@
 
 A modern, responsive website for SAN ENGINEERINGS, a premier water body construction company with 30+ years of experience.
 
-## 📋 Project Overview
+## 📋 Website Overview
 
 This website showcases the complete portfolio and services of SAN ENGINEERINGS, including:
 - Swimming pool construction
@@ -27,7 +27,7 @@ This website showcases the complete portfolio and services of SAN ENGINEERINGS, 
 ## 📁 Project Structure
 
 ```
-sanengineerings/
+san2
 ├── index.html              # Home page
 ├── services.html           # Services page
 ├── about.html              # About company & founder
@@ -49,7 +49,7 @@ sanengineerings/
 
 ### 1. **Home Page (index.html)**
 - Hero section with call-to-action
-- Statistics section (500+ projects, 30+ years experience)
+- Statistics section (20+ projects, 5+ years experience)
 - Services overview
 - Featured projects
 - Why choose us section
@@ -71,8 +71,7 @@ sanengineerings/
 - Why choose us
 
 ### 4. **Projects Page (projects.html)**
-- Portfolio of 16+ featured projects
-- Filter functionality by project type
+- Portfolio of featured projects + Running Projects
 - Project statistics
 - Call-to-action for new projects
 
@@ -180,9 +179,7 @@ The contact form uses **formsubmit.co** service:
 
 ## 🎯 Future Enhancements
 
-- [ ] Add actual project images
 - [ ] Implement blog article pages
-- [ ] Add image gallery functionality
 - [ ] Add testimonials section
 - [ ] Implement booking/quote system
 - [ ] Add before/after gallery
@@ -204,5 +201,5 @@ All content and design © 2026 SAN ENGINEERINGS. All rights reserved.
 ---
 
 **Website**: https://sanengineerings.in
-**Created**: March 2026
+**Created**: March 2025
 **Last Updated**: March 20, 2026

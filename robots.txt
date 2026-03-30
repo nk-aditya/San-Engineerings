@@ -1,0 +1,13 @@
+User-agent: *
+Allow: /
+
+# Disallow admin and private areas
+Disallow: /admin/
+Disallow: /private/
+Disallow: /test/
+
+# Sitemap location
+Sitemap: https://sanengineerings.in/sitemap.xml
+
+# Crawl-delay for respectful crawling
+Crawl-delay: 1

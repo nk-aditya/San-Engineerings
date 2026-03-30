@@ -56,8 +56,39 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     });
 });
 
+function setActiveNavLink() {
+    const currentPage = window.location.pathname.split('/').pop() || 'index.html';
+    const isHomePage = currentPage === 'index.html' || currentPage === '';
+
+    navLinks.forEach(link => {
+        const href = link.getAttribute('href');
+        const isSectionLink = href.startsWith('#');
+        const normalizedHref = href.split('#')[0] || 'index.html';
+        const isCurrentPageLink = !isSectionLink && normalizedHref === currentPage;
+
+        link.classList.toggle('active', isCurrentPageLink);
+
+        if (link.classList.contains('cta-button')) {
+            link.classList.toggle('active', currentPage === 'contact.html');
+        }
+    });
+
+    if (isHomePage) {
+        const homeLink = document.querySelector('nav a[href="#home"]');
+        if (homeLink) {
+            homeLink.classList.add('active');
+        }
+    }
+}
+
+document.addEventListener('DOMContentLoaded', setActiveNavLink);
+
 // Active navigation link based on scroll position
 window.addEventListener('scroll', () => {
+    if ((window.location.pathname.split('/').pop() || 'index.html') !== 'index.html') {
+        return;
+    }
+
     let current = '';
     const sections = document.querySelectorAll('section, [id]');
     
@@ -70,8 +101,15 @@ window.addEventListener('scroll', () => {
     });
 
     navLinks.forEach(link => {
+        const href = link.getAttribute('href');
+        const isSectionLink = href.startsWith('#');
+
+        if (!isSectionLink) {
+            return;
+        }
+
         link.classList.remove('active');
-        if (link.getAttribute('href').slice(1) === current) {
+        if (href.slice(1) === current) {
             link.classList.add('active');
         }
     });

@@ -116,6 +116,10 @@ nav a {
     position: relative;
 }
 
+nav a.active:not(.cta-button) {
+    color: var(--primary-blue);
+}
+
 nav a:not(.cta-button)::after {
     content: '';
     position: absolute;
@@ -128,6 +132,10 @@ nav a:not(.cta-button)::after {
 }
 
 nav a:not(.cta-button):hover::after {
+    width: 100%;
+}
+
+nav a.active:not(.cta-button)::after {
     width: 100%;
 }
 
@@ -159,6 +167,17 @@ nav a:not(.cta-button):hover::after {
 .cta-button:hover {
     color: var(--white);
     transform: scale(1.1) !important;
+}
+
+.cta-button.active {
+    color: var(--white);
+    background: var(--accent-blue);
+    box-shadow: 0 0 0 3px rgba(0, 102, 255, 0.15);
+    transform: none !important;
+}
+
+.cta-button.active:hover {
+    transform: none !important;
 }
 
 /* ============================================

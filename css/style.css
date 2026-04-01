@@ -1695,7 +1695,7 @@ footer .social-icon:hover{
     position: absolute;
     top: 50%;
     transform: translateY(-50%);
-    background: rgba(0, 29, 158, 0.7);
+    background: rgba(0, 29, 158, 0.562);
     color: white;
     border: none;
     width: 45px;
@@ -1708,12 +1708,13 @@ footer .social-icon:hover{
     justify-content: center;
     transition: all 0.3s ease;
     z-index: 10;
-    opacity: 0;
-    visibility: hidden;
+    opacity: 0.5;
+    visibility: visible;
 }
 
 .gallery-btn:hover {
-    background: rgba(0, 29, 158, 0.95);
+    background: rgb(0, 29, 158);
+    opacity: 1;
     transform: translateY(-50%) scale(1.1);
 }
 
@@ -1727,7 +1728,6 @@ footer .social-icon:hover{
 
 .image-gallery:hover .gallery-btn {
     opacity: 1;
-    visibility: visible;
 }
 
 @media (max-width: 768px) {
